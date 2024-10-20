@@ -11,13 +11,11 @@ A Python script that sends daily emails to specified recipients using Flask and 
 - [Configuration](#configuration)
 - [Usage](#usage)
 - [Project Structure](#project-structure)
-- [Logging](#logging)
-- [Error Handling](#error-handling)
 - [Scheduling the Script](#scheduling-the-script)
 - [Security Considerations](#security-considerations)
 - [Contributing](#contributing)
 - [Acknowledgments](#acknowledgments)
-
+- [Contributing](#contributing)
 ## Introduction
 
 This project provides a simple way to send daily emails to a list of recipients using Python, Flask, and Flask-Mail. It is designed to be run automatically (e.g., via a scheduled task or cron job) and can be customized to send any HTML content.
