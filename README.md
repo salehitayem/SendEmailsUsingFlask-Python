@@ -12,7 +12,6 @@ A Python script that sends daily emails to specified recipients using Flask and 
 - [Usage](#usage)
 - [Project Structure](#project-structure)
 - [Scheduling the Script](#scheduling-the-script)
-- [Security Considerations](#security-considerations)
 - [Contributing](#contributing)
 - [Acknowledgments](#acknowledgments)
 - [Contributing](#contributing)
