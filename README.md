@@ -16,7 +16,6 @@ A Python script that sends daily emails to specified recipients using Flask and 
 - [Scheduling the Script](#scheduling-the-script)
 - [Security Considerations](#security-considerations)
 - [Contributing](#contributing)
-- [License](#license)
 - [Acknowledgments](#acknowledgments)
 
 ## Introduction
@@ -75,9 +74,12 @@ This project provides a simple way to send daily emails to a list of recipients 
 
 ### 1. Set Up Gmail SMTP Access
 
+
+
 To use Gmail's SMTP server, you need to configure your Gmail account to allow SMTP access.
 
-**Important:** As of May 30, 2022, Google no longer supports the use of third-party apps or devices which ask you to sign in to your Google Account using only your username and password. Instead, you must use an App Password.
+**Important:** As of May 30, 2022, Google no longer supports the use of third-party apps or devices which ask you to sign in to your Google Account using only your username and password. Instead, you must use an **"App Password"**.
+
 
 #### Steps to Generate an App Password:
 
@@ -94,6 +96,7 @@ To use Gmail's SMTP server, you need to configure your Gmail account to allow SM
    - Under **"Select the app and device you want to generate the app password for,"** choose **"Mail"** as the app and **"Windows Computer"** (or your device) as the device.
    - Click **"Generate."**
    - Copy the 16-character app password provided. This is the password you'll use in your application.
+     
 
 
 ### 2. Update `config.py`
@@ -110,14 +113,19 @@ class Config:
     MAIL_DEFAULT_SENDER = ('Your Name', 'your_email@gmail.com')
   ```
 
+
 ### 3. Customize Recipients:
+
 Edit the `recipients` list in `dailyMail.py`:
 ```python
 recipients = ['recipient1@example.com', 'recipient2@example.com']
 ```
 
+
 ### 4. Customize Email Content:
+
 Modify the `html_table` variable in `dailyMail.py` to change the email's HTML content:
+
 ```python
 html_table = """
 <!DOCTYPE html>
@@ -135,27 +143,39 @@ html_table = """
 """
 ```
 
+
 ### 5. Subject Line
+
 Update the subject line in `dailyMail.py`:
+
 ```python
 msg = Message(
     subject='Your Email Subject',
     recipients=[recipient]
 )
 ```
-### Usage
+
+
+## Usage
+
   1. Run the Script Manually:
+  2. 
      ```bash
      python dailyMail.py
      ```
+     
      This will send the emails to the specified recipients.
+
      
   3. Schedule the Script to Run Daily:
+     
      - #On Windows#
        - Use the provided `run_daily_mail.bat` file.
        - Update the paths in `run_daily_mail.bat` to match your project directory.
        - Use Task Scheduler to run the batch file daily.
+         
        Example `run_daily_mail.bat`:
+       
       ```bash
       @echo on
       cd C:\path\to\your\project
@@ -163,22 +183,28 @@ msg = Message(
       python dailyMail.py
       echo Script finished.
       ```
+      
   - #On macOS/Linux:#
     - Create a shell script similar to the batch file.
     - Use `cron` to schedule the script.
 
-### Project Structure
+
+## Project Structure
   - `dailyMail.py`: Main script to send emails.
   - `config.py`: Configuration for email settings.
   - `req.txt`: Required Python packages.
   - `run_daily_mail.bat`: Batch file to run the script on Windows.
 
 
-### Scheduling the Script
+## Scheduling the Script
 
-## On Windows
+
+### On Windows
+
 1. Update `run_daily_mail.bat`:
-  Ensure the paths match your project directory:
+
+   Ensure the paths match your project directory:
+
   ```bash
   @echo on
   cd C:\path\to\your\project
@@ -195,28 +221,36 @@ msg = Message(
   - Under the "Actions" tab, click "New..." and set "Start a program" to your batch file.
   - Save the task.
 
-## ON macOS/Linux
+### ON macOS/Linux
+
 1. Create a Shell Script (`run_daily_mail.sh`):
+   
    ```bash
    #!/bin/bash
     cd /path/to/your/project
     source venv/bin/activate
     python dailyMail.py
     ```
+   
     Make it executable:
+   
     ```bash
     chmod +x run_daily_mail.sh
     ```
-2. Schedule with Cron:
+    
+3. Schedule with Cron:
+   
    - Open the cron editor:
+     
      ```bash
       crontab -e
      ```
+     
    - Add a cron job (e.g., to run daily at 8 AM):
+     
      ```bash
       0 8 * * * /path/to/run_daily_mail.sh
      ```
-
 
 ## Acknowledgments
 
@@ -226,7 +260,7 @@ msg = Message(
 
 
 
-### Contributing
+## Contributing
 Contributions are welcome! Please open an issue or submit a pull request.
    
 
